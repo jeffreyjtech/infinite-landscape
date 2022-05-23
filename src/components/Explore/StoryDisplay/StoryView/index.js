@@ -1,5 +1,34 @@
+import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 
 export default function StoryView(props) {
-  return <Typography>{props.description}</Typography>
+  let description = props.description;
+  let previousIndex = 0;
+  let keys = Object.keys(props.tooltips)
+  let slices = []
+
+  for (let i = 0; i < keys.length; i++) {
+    let keyword = keys[i];
+    let regExp = new RegExp(keyword, 'g');
+    if (!regExp.test(description)) continue;
+
+    let keywordIndex = description.indexOf(keyword)
+    slices.push(description.slice(previousIndex, keywordIndex));
+    slices.push(keyword);
+    previousIndex = keywordIndex + keyword.length;
+  }
+  console.log(slices)
+  let tippedDescription = [];
+  slices.forEach((slice) => {
+    console.log(slice);
+    if (keys.includes(slice)) {
+      tippedDescription.push(<Tooltip title={props.tooltips[slice]}><Typography sx={{ display: "inline" }}>{slice}</Typography></Tooltip>)
+    } else {
+      tippedDescription.push(slice);
+    }
+  })
+  console.log(tippedDescription)
+  return (
+    <Typography>{tippedDescription}</Typography>
+  );
 }
