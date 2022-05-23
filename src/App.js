@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-
+// depreciated stylings throwing warnings -> not required
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import Profile from './components/UserProfile/index.js'
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <div id="profile">
+        <Profile />
+      </div>
     </div>
   );
 }
