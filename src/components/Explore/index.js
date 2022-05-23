@@ -51,11 +51,11 @@ export default function Explore() {
     <Box sx={{
       display: "flex",
       flexDirection: "row",
-      maxWidth: "65%",
-      minHeight: "65%",
+      maxWidth: "88%",
       margin: "auto",
       backgroundColor: "darkgray",
-      justifyContent: "space-evenly"
+      justifyContent: "space-evenly",
+      padding: "2%"
     }}>
       <StoryDisplay currentStory={currentStory} />
       <NetworkDisplay currentStory={currentStory} stories={stories} />

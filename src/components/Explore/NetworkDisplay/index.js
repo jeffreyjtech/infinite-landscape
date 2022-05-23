@@ -6,7 +6,7 @@ export default function NetworkDisplay(props) {
   return (<Box sx={{
     display: "flex",
     flexDirection: "column",
-    MaxWidth: "32%",
+    maxWidth: "32%",
     margin: "1%"
   }}>
     <NetworkView graph={props.stories} currentStory={props.currentStory} />

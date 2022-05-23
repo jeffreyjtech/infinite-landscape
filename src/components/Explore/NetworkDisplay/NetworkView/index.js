@@ -5,7 +5,7 @@ export default function NetworkView(props) {
   return <Box sx={{
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "darkslategray"
+    backgroundColor: "darkslategray",
   }}>
     <Typography>{props.currentStory.category}</Typography>
     <GraphDisplay graph={props.graph} />

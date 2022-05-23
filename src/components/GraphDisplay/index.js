@@ -4,8 +4,7 @@ import { Box, Typography } from "@mui/material";
 export default function GraphDisplay() {
   return <Box sx={{
     backgroundColor: "darkslategray",
-    minHeight: "200px",
-    minWidth: "200px",
+    minHeight: "160px",
   }}><Typography>[ ] - [ ] - [ ]</Typography></Box>
 
 }
