@@ -19,7 +19,7 @@ export default function StoryDisplay(props) {
       textAlign: "left",
     }}>
       <StoryTitle title={props.currentStory.title} />
-      <StoryView description={props.currentStory.description} />
+      <StoryView description={props.currentStory.description} tooltips={props.currentStory.tooltips} />
       <ByLine penName={props.currentStory.penName} />
     </Box>
   );
