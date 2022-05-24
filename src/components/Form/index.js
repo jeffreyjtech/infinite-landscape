@@ -37,8 +37,8 @@ function Form(props){
 
   //function to handle the description form and the state updates
   //something being whatever we return from the form 
-  function descriptionHandler(something){
-    setDescriptions(something)
+  function descriptionHandler(formData){
+    setDescriptions(formData)
   }
   
   //function to handle the tooltip form and the state updates

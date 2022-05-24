@@ -2,22 +2,12 @@ import * as React from "react";
 import { useState } from "react";
 import { MenuItem, TextField } from "@mui/material";
 import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
+import FloatingLabel from 'react-bootstrap/FloatingLabel'
 
-const categories = [
-  {
-    value: "Horror",
-    label: "Horror",
-  },
-  {
-    value: "Sci-fi",
-    label: "Sci-fi",
-  },
-  {
-    value: "Fantasy",
-    label: "Fantasy",
-  },
-];
-
+const categories = [ 'Horror', 'Sci-Fi', 'Fantasy']
 const colors = ["Blue", "Green", "Red", "Yellow", "Orange"]
 
 // const handleChange = (e) => {
@@ -30,74 +20,82 @@ const colors = ["Blue", "Green", "Red", "Yellow", "Orange"]
 // };
 
 
-function DescriptionForm({descriptionHandler}){
-  const [category, setCategory] = useState(categories);
+function DescriptionForm({ descriptionHandler }) {
+  const [formData, setFormData] = useState({});
 
-  const handleChange = (event) => {
-    console.log(event.target)
-    setCategory(event.target.value);
+  const handleChange = (e) => {
+    console.log(e.target.name, e.target.value)
+    let store = { ...formData };
+    const field = e.target.name;
+    const value = e.target.value;
+    store[field] = value;
+    setFormData(store);
+    descriptionHandler(formData);
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  // };
+
+  //call descriptionhandlerfunction(category)
+
   return (
-    <div id="description-form" >
-      <h1>Description Form</h1>
-      <TextField
-        id="title-input"
-        label="Title"
-        helperText="Please enter a title"
-        color="success"
-        sx={{ mx: 1 }}
-        onChange={handleChange}
-      />
-      <TextField
-        id="select-category"
-        select
-        label="Select"
-        value={category}
-        onChange={handleChange}
-        helperText="Please select your category"
-        color="success"
-      >
-        {categories.map((category) => (
-          <MenuItem key={category.value} value={category.value}>
-            {category.value}
-          </MenuItem>
-        ))}
-      </TextField>
-      <TextField
-        id="select-color"
-        select
-        label="Select"
-        value={category}
-        onChange={handleChange}
-        helperText="Please select your color"
-        color="success"
-        sx={{ mx: 1 }}
-      >
-      {colors.map(value => {
-        return <MenuItem>{value}</MenuItem>
-      })}
-      </TextField>
-      <TextField
-        id="summary-input"
-        label="Summary"
-        helperText="Please enter a summary"
-        color="success"
-        fullWidth
-        onChange={handleChange}
-      ></TextField>
-      <TextField
-        id="description-input"
-        label="Description"
-        multiline
-        rows={6}
-        fullWidth
-        helperText="Please enter a description"
-        color="success"
-        onChange={handleChange}
-      ></TextField>
-      <Button></Button>
-    </div>
+    <>
+      <div>
+        <p>Description Form</p>
+        <Form className="mt-4">
+          <Row className="g-2">
+            <Col>
+              <Form.Group controlId="storeName">
+                <Form.Control
+                  type="text"
+                  placeholder="Title"
+                  name="title"
+                  onChange={handleChange}
+                />
+              </Form.Group>
+            </Col>
+            <Col md>
+              <FloatingLabel controlId="floatingSelectGrid" label="SELECT">
+                <Form.Select name="color" onChange={handleChange}>
+                  <option>Colors</option>
+                  {colors.map(value => {
+                    return <option value={value}>{value}</option>
+                  })}
+                </Form.Select>
+              </FloatingLabel>
+            </Col>
+            <Col md>
+              <FloatingLabel controlId="floatingSelectGrid" label="SELECT">
+                <Form.Select name="category" onChange={handleChange}>
+                  <option>Categories</option>
+                  {categories.map(value => {
+                    return <option value={value}>{value}</option>
+                  })}
+                </Form.Select>
+              </FloatingLabel>
+            </Col>
+          </Row>
+          <FloatingLabel controlId="floatingTextarea2" label="summary">
+            <Form.Control
+              as="textarea"
+              placeholder="enter info here"
+              name='summary'
+              onChange={handleChange}
+            />
+          </FloatingLabel>
+          <FloatingLabel controlId="floatingTextarea2" label="description">
+            <Form.Control
+              as="textarea"
+              placeholder="enter description here"
+              style={{ height: '100px' }}
+              name='description'
+              onChange={handleChange}
+            />
+          </FloatingLabel>
+        </Form>
+      </div>
+    </>
   );
 };
 
