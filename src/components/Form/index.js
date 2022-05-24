@@ -21,9 +21,11 @@ function Form(props){
     //build this object:
     // {
     //   "title": "The first room",
+    //-------------------------------
     //   "username": "micha",
     //   "penName": "Michanations",
     //   "uuid": 10001,
+     //-------------------------------
     //   "summary": "A simple room with information placqards on one wall.",
     //   "description": "This room is completely unadorned, save for a gigantic information diagram on the east wall. There is a single door leading out of the room.",
     //   "category": "TUTORIAL",
@@ -39,11 +41,13 @@ function Form(props){
   //something being whatever we return from the form 
   function descriptionHandler(formData){
     setDescriptions(formData)
+    console.log('state-d:', descriptions)
   }
   
   //function to handle the tooltip form and the state updates
   function tooltipHandler(something){
     setTooltip(something)
+    console.log('state-tt:', tooltip )
   }
   return(
     <Container style={{marginTop: '75px'}}>
