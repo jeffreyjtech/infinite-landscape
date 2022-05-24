@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
-import { MenuItem, TextField } from "@mui/material";
-import Button from 'react-bootstrap/Button'
+// import { MenuItem, TextField } from "@mui/material";
+// import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
@@ -24,7 +24,7 @@ function DescriptionForm({ descriptionHandler }) {
   const [formData, setFormData] = useState({});
 
   const handleChange = (e) => {
-    console.log(e.target.name, e.target.value)
+    // console.log(e.target.name, e.target.value)
     let store = { ...formData };
     const field = e.target.name;
     const value = e.target.value;
@@ -52,18 +52,9 @@ function DescriptionForm({ descriptionHandler }) {
                   placeholder="Title"
                   name="title"
                   onChange={handleChange}
+                  style={{ height: '58px' }}
                 />
               </Form.Group>
-            </Col>
-            <Col md>
-              <FloatingLabel controlId="floatingSelectGrid" label="SELECT">
-                <Form.Select name="color" onChange={handleChange}>
-                  <option>Colors</option>
-                  {colors.map(value => {
-                    return <option value={value}>{value}</option>
-                  })}
-                </Form.Select>
-              </FloatingLabel>
             </Col>
             <Col md>
               <FloatingLabel controlId="floatingSelectGrid" label="SELECT">
@@ -75,8 +66,18 @@ function DescriptionForm({ descriptionHandler }) {
                 </Form.Select>
               </FloatingLabel>
             </Col>
+            <Col md>
+              <FloatingLabel controlId="floatingSelectGrid" label="SELECT">
+                <Form.Select name="color" onChange={handleChange}>
+                  <option>Colors</option>
+                  {colors.map(value => {
+                    return <option value={value}>{value}</option>
+                  })}
+                </Form.Select>
+              </FloatingLabel>
+            </Col>
           </Row>
-          <FloatingLabel controlId="floatingTextarea2" label="summary">
+          <FloatingLabel controlId="floatingTextarea2" label="summary" className="mt-2">
             <Form.Control
               as="textarea"
               placeholder="enter info here"
@@ -84,7 +85,7 @@ function DescriptionForm({ descriptionHandler }) {
               onChange={handleChange}
             />
           </FloatingLabel>
-          <FloatingLabel controlId="floatingTextarea2" label="description">
+          <FloatingLabel controlId="floatingTextarea2" label="description" className="mt-2">
             <Form.Control
               as="textarea"
               placeholder="enter description here"
