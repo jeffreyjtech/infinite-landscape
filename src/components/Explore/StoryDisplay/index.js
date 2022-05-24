@@ -18,7 +18,7 @@ export default function StoryDisplay(props) {
       padding: "2%",
       textAlign: "left",
     }}>
-      <StoryTitle title={props.currentStory.title} />
+      <StoryTitle title={props.currentStory.label} />
       <StoryView description={props.currentStory.description} tooltips={props.currentStory.tooltips} />
       <ByLine penName={props.currentStory.penName} />
     </Box>
