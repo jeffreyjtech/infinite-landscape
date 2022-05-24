@@ -4,7 +4,7 @@ import { TextField, List, ListItem, ListItemText } from "@mui/material";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import IconButton from '@mui/material/IconButton';
 
-const ToolTipForm = () => {
+function ToolTipForm ({tooltipHandler}){
 
   const [keys, setKeys] = useState();
 

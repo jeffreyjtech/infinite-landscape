@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 // depreciated stylings throwing warnings -> not required
 // import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 import Profile from "./components/UserProfile/index.js";
 import Form from "./components/Form";
 function App() {

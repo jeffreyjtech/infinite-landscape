@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { MenuItem, TextField } from "@mui/material";
+import Button from 'react-bootstrap/Button'
 
 const categories = [
   {
@@ -17,28 +18,36 @@ const categories = [
   },
 ];
 
-// const colors = [
+const colors = ["Blue", "Green", "Red", "Yellow", "Orange"]
 
-// ]
+// const handleChange = (e) => {
+//   let store = {...object};
+//   const field = e.target.name;
+//   const value = e.target.value;
+//   store[field] = value;
+//   setObject(store);
+//   console.log(object)
+// };
 
-const DescriptionForm = () => {
-  const [category, setCategory] = useState("");
+
+function DescriptionForm({descriptionHandler}){
+  const [category, setCategory] = useState(categories);
 
   const handleChange = (event) => {
+    console.log(event.target)
     setCategory(event.target.value);
   };
 
   return (
-    <div id="description-form">
+    <div id="description-form" >
       <h1>Description Form</h1>
       <TextField
         id="title-input"
         label="Title"
         helperText="Please enter a title"
-        magin="normal"
         color="success"
-        focused
         sx={{ mx: 1 }}
+        onChange={handleChange}
       />
       <TextField
         id="select-category"
@@ -47,9 +56,7 @@ const DescriptionForm = () => {
         value={category}
         onChange={handleChange}
         helperText="Please select your category"
-        magin="normal"
         color="success"
-        focused
       >
         {categories.map((category) => (
           <MenuItem key={category.value} value={category.value}>
@@ -62,27 +69,22 @@ const DescriptionForm = () => {
         select
         label="Select"
         value={category}
-        // onChange={handleChange}
+        onChange={handleChange}
         helperText="Please select your color"
-        magin="normal"
         color="success"
-        focused
         sx={{ mx: 1 }}
       >
-        <MenuItem> Blue </MenuItem>
-        <MenuItem> Green </MenuItem>
-        <MenuItem> Red </MenuItem>
-        <MenuItem> Yellow </MenuItem>
-        <MenuItem> Orange </MenuItem>
+      {colors.map(value => {
+        return <MenuItem>{value}</MenuItem>
+      })}
       </TextField>
       <TextField
         id="summary-input"
         label="Summary"
         helperText="Please enter a summary"
-        magin="normal"
         color="success"
         fullWidth
-        focused
+        onChange={handleChange}
       ></TextField>
       <TextField
         id="description-input"
@@ -91,10 +93,10 @@ const DescriptionForm = () => {
         rows={6}
         fullWidth
         helperText="Please enter a description"
-        magin="normal"
         color="success"
-        focused
+        onChange={handleChange}
       ></TextField>
+      <Button></Button>
     </div>
   );
 };
