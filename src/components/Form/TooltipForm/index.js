@@ -8,11 +8,20 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+/**
+ * 
+ * @param {*} tooltipHandler
+ * function called from the parent component Form/index.js that will update state in the parent component to compile into an api call as well as update the state for page rerenders
+ * @returns 
+ * interacive Component that accepts user input and creates an object for the parent to be used
+ */
 
 function ToolTipForm({ tooltipHandler }) {
+  //states required to stimulate page refreshes on data updates
   const [toolTipData, setToolTipData] = useState({});
   const [toolTipList, setToolTipList] = useState({});
 
+  //function to dynamically and generically handle the changing of inputs on our form, by setting the field and value agnostically 
   function handleChangeToolTip(e) {
     let toolTip = { ...toolTipData };
     const field = e.target.name;
@@ -22,6 +31,7 @@ function ToolTipForm({ tooltipHandler }) {
     tooltipHandler(toolTip);
   }
 
+  //handles the submission of the data on the form 
   function handleSubmit(e) {
     e.preventDefault();
     const key = toolTipData.key;
@@ -31,11 +41,7 @@ function ToolTipForm({ tooltipHandler }) {
     tooltipHandler({...toolTipData, toolTipList})
   }
   
-  // function to delete tooltip from list
-  //iterate through tooltip list
-  //keep all data other than payload
-  //if value !== target value
-  //keep those in object
+  // function checks data and returns all data that does not match the deleted item, effectivly deleting the data.
   function handleDelete(e, givenKey){
     e.preventDefault();
     let newObj = {}
@@ -44,15 +50,12 @@ function ToolTipForm({ tooltipHandler }) {
         newObj[key] = value
       }
     })
-    console.log('one', toolTipList)
     setToolTipList(newObj)
     // need to debug how state is being passed to StoryDisplay
     // tooltipHandler({newObj})
-    console.log('two', toolTipList)
   }
 
 
-  console.log(toolTipList)
 
   return (
     <div id="tooltip-form">

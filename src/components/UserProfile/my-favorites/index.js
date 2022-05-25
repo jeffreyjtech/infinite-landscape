@@ -8,7 +8,14 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react'
 
-
+/**
+ * 
+ * @param {*} props
+ * takes in data to be rendered in accordian  
+ * @returns 
+ * component with rendered data from props
+ * 
+ */
 function Favorites(props) {
   const [expanded, setExpanded] = useState(false);
 
