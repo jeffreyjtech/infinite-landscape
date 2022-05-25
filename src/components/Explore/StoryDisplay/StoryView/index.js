@@ -10,6 +10,7 @@ export default function StoryView(props) {
   for (let i = 0; i < keys.length; i++) {
     let keyword = keys[i];
     let regExp = new RegExp(keyword, 'g');
+    //regExp = /potato/g
     if (!regExp.test(description)) continue;
 
     let keywordIndex = description.indexOf(keyword)
@@ -29,6 +30,8 @@ export default function StoryView(props) {
   })
   console.log(tippedDescription)
   return (
-    <Typography>{tippedDescription}</Typography>
+    <div id="tipped-description">
+      {tippedDescription}
+      </div>
   );
 }
