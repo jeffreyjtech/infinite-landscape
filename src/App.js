@@ -17,6 +17,7 @@ function App() {
       <div className="header">
         <Header />
       </div>
+
     {/* Creating routing paths for App's children components */}
       <BrowserRouter>
         <Routes>

@@ -7,7 +7,15 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react'
 
-            // {/* my recent map || Decide on library EX: ALCHEMY OR GRIDS AND GRAPHS OR ANY OTHERS?*/}
+/**
+ * 
+ * @param {*} props 
+ * Takes in data to be rendered in component 
+ * @returns
+ * component with rendered data from props
+ *  
+ */
+
 
 function Contributions(props) {
   const [expanded, setExpanded] = useState(false);

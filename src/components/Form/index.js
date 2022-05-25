@@ -8,7 +8,14 @@ import PreviewModal from "./PreviewModal";
 
 import { useState } from 'react'
 
-function Form(props){
+/**
+ * @returns 
+ * a form component that accepts user input and creates an object to be sent to the api
+ * the object is aggregated data from 2 forms, one bein the tooltips form and the other being the descriptions form
+ * 
+ * calls api with object
+ */
+function Form(){
   //state for description form
   const [descriptions, setDescriptions] = useState({
     category: "Horror",
@@ -17,6 +24,7 @@ function Form(props){
     summary: 'more stuff',
     label: 'this is label'
   });
+  
   //state for tooltip form
   const [tooltip, setTooltip] = useState({
     key: "stuff",
