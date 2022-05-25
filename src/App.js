@@ -6,13 +6,18 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Profile from "./components/UserProfile/index.js";
 import Form from "./components/Form";
-
-import Explore from './components/Explore'
+import Explore from './components/Explore';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 /** App is the function container for rendering Explore, Profile, and Form components */
 function App() {
   return (
     <div className="App">
+      <div className="header">
+        <Header />
+      </div>
+
     {/* Creating routing paths for App's children components */}
       <BrowserRouter>
         <Routes>
@@ -21,7 +26,9 @@ function App() {
             <Route path="/" element={<Explore />} />
         </Routes>
       </BrowserRouter>
-
+      <div className="footer">
+        <Footer />
+      </div>
     </div>
   );
 }
