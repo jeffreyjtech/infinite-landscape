@@ -9,6 +9,9 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 
+//IMPORTS: from MUI 
+import Typography from '@mui/material/Typography';
+
 
 ///////IMPORTANT INFO////////////////
 ///In case rendering all of the Accordians becomes performant heavy and we get bottlenecks please///
@@ -19,11 +22,18 @@ import Container from 'react-bootstrap/Container'
 ////////////////////////////////////
 
 function Profile(props) {
+
+  //make API CALLS -> Required data: Recents where id === user.id
+  //                                 Contributions where id === user.id
+  //                                 Favorites where id === user.id
+
+  //pass data as props to children components 
+  
   return (
     <>
-      <header>
-        User Profile:
-      </header>
+      <Typography variant="h3" component="div" gutterBottom>
+        Welcome back, ${'username'}
+      </Typography>
       <Container>
         <Row>
           <Col className='w-50 m-4' style={{ backgroundColor: '#E9573F' }}>
