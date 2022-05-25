@@ -15,7 +15,7 @@ function Form(props){
     color: 'Blue',
     description: 'stuff',
     summary: 'more stuff',
-    title: 'this is title'
+    label: 'this is label'
   });
   //state for tooltip form
   const [tooltip, setTooltip] = useState({
@@ -27,20 +27,22 @@ function Form(props){
     }]
   });
 
+  //state for preview modal
+  const [show, setShow] = useState(false);
   //function to handle submit to API
   function onSumbit(e){
     let object = {
-      title: descriptions.title,
+      label: descriptions.label,
       username: 'PLACEHOLDER',
       penName: 'PLACEHOLDER_STUFF',
-      uuid: 'PLACEHOLDER',
+      id: 'PLACEHOLDER',
       summary: descriptions.summary,
       description: descriptions.description,
       category: descriptions.category,
       color: descriptions.color,
       tooltips: tooltip.toolTipList
     }
-    console.log(object)
+    // console.log(object)
     //call the POST api route passing in the object above (as requested by Micha)
   }
 
@@ -48,7 +50,7 @@ function Form(props){
   //something being whatever we return from the form 
   function descriptionHandler(formData){
     setDescriptions(formData)
-    console.log('state-d:', descriptions)
+    // console.log('state-d:', descriptions)
   }
   
   //function to handle the tooltip form and the state updates
@@ -57,21 +59,24 @@ function Form(props){
     console.log('state-tt:', tooltip )
   }
 
+  //functions to toggle showing modal
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  
+
  let currentStory = 
-  {
-    label: "The first room",
-    username: "micha",
-    penName: "Michanations",
-    id: 10001,
-    summary: "A simple room with information placards on one wall.",
-    description: "This room is completely unadorned, save for a gigantic series of information diagrams on the east wall. There is a single door leading out of the room.",
-    category: "TUTORIAL",
-    color: "blue",
-    tooltips: {
-      information: "You can hover over words like this to get more information",
-      door: "This door leads to the next room. Hover over that room in the map view to see what might be inside."
-    }
-  }
+ {
+  label: descriptions.label,
+  username: "micha",
+  penName: "Michanations",
+  id: 10001,
+  summary: descriptions.summary,
+  description: descriptions.description,
+  category: descriptions.category,
+  color: descriptions.color,
+  tooltips: tooltip.toolTipList
+}
+// console.log(currentStory);
 
   return(
     <Container style={{marginTop: '75px'}}>
@@ -83,8 +88,12 @@ function Form(props){
         <ToolTipForm tooltipHandler={tooltipHandler}/>
         </Col>
       </Row>
-      <Button className="m-4" variant="contained">Preview</Button>
-      <PreviewModal currentStory={currentStory} />
+      <Button className="m-4" variant="contained" onClick={handleShow}>Preview</Button>
+      <PreviewModal 
+      currentStory={currentStory}
+      handleClose={handleClose}
+      show={show}
+      />
       <Button className="m-4" variant="contained" onClick={onSumbit}>Submit</Button>
     </Container>
   )
