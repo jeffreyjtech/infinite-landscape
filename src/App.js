@@ -6,6 +6,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Profile from "./components/UserProfile/index.js";
 import Form from "./components/Form";
+
 import Explore from './components/Explore'
 
 /** App is the function container for rendering Explore, Profile, and Form components */
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Explore />} />
         </Routes>
       </BrowserRouter>
+
     </div>
   );
 }
