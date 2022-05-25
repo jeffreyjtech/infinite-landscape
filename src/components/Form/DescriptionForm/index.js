@@ -33,7 +33,7 @@ function DescriptionForm({ descriptionHandler }) {
                 <Form.Control
                   type="text"
                   placeholder="Title"
-                  name="title"
+                  name="label"
                   onChange={handleChange}
                   style={{ height: '58px' }}
                 />
