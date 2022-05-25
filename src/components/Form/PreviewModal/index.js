@@ -7,12 +7,12 @@ function PreviewModal(props){
 
 
   return (
-    <Modal show={true}>
-      <Modal.Header closeButton={true}>
+    <Modal show={props.show} onHide={props.handleClose}>
+      <Modal.Header closeButton>
         <Modal.Title>PREVIEW</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <StoryDisplay currentStory={props.currentStory}/>
+        <StoryDisplay currentStory={props.currentStory}  />
       </Modal.Body>
     </Modal>
   )
