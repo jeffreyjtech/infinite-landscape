@@ -1,10 +1,13 @@
 //component for list of favorite contributions the user has saved
+
+// IMPORTS: from MUI Accordian component
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react'
+
 
 function Favorites(props) {
   const [expanded, setExpanded] = useState(false);
@@ -36,4 +39,5 @@ function Favorites(props) {
     </div>
   )
 }
+
 export default Favorites;
