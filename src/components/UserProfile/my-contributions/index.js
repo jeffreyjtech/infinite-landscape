@@ -19,7 +19,9 @@ function Contributions(props) {
     <div className='mt-4' style={{ border: 'solid 3px black' }}>
       <p>My Contributions:</p>
       <div className='m-4'>
-        {/* insert map here to iterate over data and populate data correctly */}
+        {/* insert map here to iterate over data and populate data correctly 
+          props.data.map((value)=>{})
+        */}
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
