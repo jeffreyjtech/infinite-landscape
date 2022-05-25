@@ -1,12 +1,9 @@
-import { combineReducers } from "redux";
-import { configureStore } from "@reduxjs/toolkit";
-import graphSlice from "./graph";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import graphSlice from './graph';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-let reducer = combineReducers({
+let reducers = combineReducers({
   graph: graphSlice.reducer,
 });
 
-export default function store() {
-  return configureStore({ reducer }, composeWithDevTools());
-}
+export default configureStore({ reducer: reducers }, composeWithDevTools());
