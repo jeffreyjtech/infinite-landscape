@@ -19,7 +19,7 @@ function ToolTipForm({ tooltipHandler }) {
     const value = e.target.value;
     toolTip[field] = value;
     setToolTipData(toolTip);
-    tooltipHandler(toolTipData);
+    tooltipHandler(toolTip);
     // console.log(toolTipData);
   }
 
@@ -30,6 +30,7 @@ function ToolTipForm({ tooltipHandler }) {
     const value = toolTipData.text;
     toolTipList.push({key: key, value: value});
     setToolTipData({...toolTipData, toolTipList})
+    tooltipHandler({...toolTipData, toolTipList})
   }
 
   return (
