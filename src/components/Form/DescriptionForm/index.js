@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState} from "react";
 // import { MenuItem, TextField } from "@mui/material";
 // import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
@@ -9,16 +9,6 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel'
 
 const categories = [ 'Horror', 'Sci-Fi', 'Fantasy']
 const colors = ["Blue", "Green", "Red", "Yellow", "Orange"]
-
-// const handleChange = (e) => {
-//   let store = {...object};
-//   const field = e.target.name;
-//   const value = e.target.value;
-//   store[field] = value;
-//   setObject(store);
-//   console.log(object)
-// };
-
 
 function DescriptionForm({ descriptionHandler }) {
   const [formData, setFormData] = useState({});
@@ -30,15 +20,8 @@ function DescriptionForm({ descriptionHandler }) {
     const value = e.target.value;
     store[field] = value;
     setFormData(store);
-    descriptionHandler(formData);
+    descriptionHandler(store);
   };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  // };
-
-  //call descriptionhandlerfunction(category)
-
   return (
     <>
       <div>

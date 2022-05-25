@@ -8,32 +8,38 @@ import Button from '@mui/material/Button';
 import { useState } from 'react'
 
 function Form(props){
-  
-  
   //state for description form
-  const [descriptions, setDescriptions] = useState({});
+  const [descriptions, setDescriptions] = useState({
+    category: "Horror",
+    color: 'Blue',
+    description: 'stuff',
+    summary: 'more stuff',
+    title: 'this is title'
+  });
   //state for tooltip form
-  const [tooltip, setTooltip] = useState({});
+  const [tooltip, setTooltip] = useState({
+    key: "stuff",
+    text: 'this is the value',
+    keys: [{
+      key: 'key',
+      value: 'value'
+    }]
+  });
 
   //function to handle submit to API
   function onSumbit(e){
-    e.preventDefault()
-    //build this object:
-    // {
-    //   "title": "The first room",
-    //-------------------------------
-    //   "username": "micha",
-    //   "penName": "Michanations",
-    //   "uuid": 10001,
-     //-------------------------------
-    //   "summary": "A simple room with information placqards on one wall.",
-    //   "description": "This room is completely unadorned, save for a gigantic information diagram on the east wall. There is a single door leading out of the room.",
-    //   "category": "TUTORIAL",
-    //   "color": "blue",
-    //   "tooltips": {
-    //     "information": "You can hover over words like this to get more information",
-    //     "door": "This door leads to the next room. Hover over that room in the map view to see what might be inside."
-    //   }
+    let object = {
+      title: descriptions.title,
+      username: 'PLACEHOLDER',
+      penName: 'PLACEHOLDER_STUFF',
+      uuid: 'PLACEHOLDER',
+      summary: descriptions.summary,
+      description: descriptions.description,
+      category: descriptions.category,
+      color: descriptions.color,
+      tooltips: tooltip.toolTipList
+    }
+    console.log(object)
     //call the POST api route passing in the object above (as requested by Micha)
   }
 
@@ -60,7 +66,7 @@ function Form(props){
         </Col>
       </Row>
       <Button className="m-4" variant="contained">Preview</Button>
-      <Button className="m-4" variant="contained">Submit</Button>
+      <Button className="m-4" variant="contained" onClick={onSumbit}>Submit</Button>
     </Container>
   )
 }
