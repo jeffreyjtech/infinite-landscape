@@ -1,3 +1,10 @@
+/**
+ * 
+ * @returns 
+ * Header component and information
+ * 
+ * will take in props and will be refactored to a nav
+ */
 function Header(){
   return(
     <div>

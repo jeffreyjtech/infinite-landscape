@@ -28,7 +28,10 @@ function Profile(props) {
   //                                 Favorites where id === user.id
 
   //pass data as props to children components 
-  
+
+  /**
+   * Index file aggregates child components, delegating props where appropriate to each individual child component.
+   */
   return (
     <>
       <Typography variant="h3" component="div" gutterBottom>

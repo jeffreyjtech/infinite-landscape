@@ -7,6 +7,11 @@ import Button from '@mui/material/Button';
 
 import { useState } from 'react'
 
+/**
+ * 
+ * @param {*} props 
+ * @returns 
+ */
 function Form(props){
   //state for description form
   const [descriptions, setDescriptions] = useState({
@@ -16,6 +21,7 @@ function Form(props){
     summary: 'more stuff',
     title: 'this is title'
   });
+  
   //state for tooltip form
   const [tooltip, setTooltip] = useState({
     key: "stuff",

@@ -1,5 +1,11 @@
 //renders a visual representation of the graph data recieved from the API
-
+/**
+ * 
+ * @param {*} props 
+ * takes in relevant data (graph information)
+ * @returns 
+ * component with visualization rendered to the user 
+ */
 function recentlyVisited(props) {
   return (
     <div className='mt-4' style={{ height: '500px', border: 'solid 3px black' }}>
