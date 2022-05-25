@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from '@mui/material/Button';
+import PreviewModal from "./PreviewModal";
 
 import { useState } from 'react'
 
@@ -55,6 +56,23 @@ function Form(props){
     setTooltip(something)
     console.log('state-tt:', tooltip )
   }
+
+ let currentStory = 
+  {
+    label: "The first room",
+    username: "micha",
+    penName: "Michanations",
+    id: 10001,
+    summary: "A simple room with information placards on one wall.",
+    description: "This room is completely unadorned, save for a gigantic series of information diagrams on the east wall. There is a single door leading out of the room.",
+    category: "TUTORIAL",
+    color: "blue",
+    tooltips: {
+      information: "You can hover over words like this to get more information",
+      door: "This door leads to the next room. Hover over that room in the map view to see what might be inside."
+    }
+  }
+
   return(
     <Container style={{marginTop: '75px'}}>
       <Row>
@@ -66,6 +84,7 @@ function Form(props){
         </Col>
       </Row>
       <Button className="m-4" variant="contained">Preview</Button>
+      <PreviewModal currentStory={currentStory} />
       <Button className="m-4" variant="contained" onClick={onSumbit}>Submit</Button>
     </Container>
   )
