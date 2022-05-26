@@ -6,7 +6,10 @@ import Col from "react-bootstrap/Col";
 import Button from '@mui/material/Button';
 import PreviewModal from "./PreviewModal";
 
-import { useState } from 'react'
+import axios from 'axios';
+import { useState } from 'react';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
 
 /**
  * @returns 
@@ -38,20 +41,24 @@ function Form(){
   //state for preview modal
   const [show, setShow] = useState(false);
   //function to handle submit to API
-  function onSumbit(e){
+  async function onSumbit(e){
     let object = {
       label: descriptions.label,
       username: 'PLACEHOLDER',
       penName: 'PLACEHOLDER_STUFF',
-      id: 'PLACEHOLDER',
       summary: descriptions.summary,
       description: descriptions.description,
-      category: descriptions.category,
+      group: descriptions.category.toLocaleLowerCase(),
       color: descriptions.color,
       tooltips: tooltip.toolTipList
     }
-    // console.log(object)
-    //call the POST api route passing in the object above (as requested by Micha)
+    try {
+      const response = await axios.post(`${API_URL}/story`, object);
+      console.log(response);
+      // STRETCH TODO: switch to the explore view on the newly created story on submission
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   //function to handle the description form and the state updates

@@ -1,33 +1,40 @@
 import { Box } from '@mui/material';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import Graph from 'react-graph-vis';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrent, getAPIStories } from '../../store/graph';
+import { setCurrent, getAPIStories, getStory } from '../../store/graph';
 
 // This will display graphs for the explore and user profile pages
 export default function GraphDisplay() {
   const dispatch = useDispatch();
   const { stories, currentStory } = useSelector((state) => state.graph);
 
-  useEffect(() => {
-    dispatch(getAPIStories(1));
-    dispatch(setCurrent(1));
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // useEffect(() => {
+  //   dispatch(getAPIStories(1));
+  //   dispatch(getStory(1));
+  // }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleClick({ nodes }) {
-    const node = nodes[0];
-    dispatch(setCurrent(node));
-    dispatch(getAPIStories(node));
+    if (nodes[0] !== currentStory.id) {
+      const node = nodes[0];
+      dispatch(setCurrent(node));
+      dispatch(getAPIStories(node));
+    }
   }
 
   // console.log('Stories is', stories, 'currentStory is', currentStory);
 
-  let edges;
+  let edges = [];
 
   if (currentStory.neighbors?.length) {
-    edges = currentStory.neighbors.map((neighborId) => {
-      return { from: currentStory.id, to: neighborId };
-    });
+    for (let story of stories) {
+      edges = ([...edges, ...story.neighbors.map((neighborId) => {
+        return { from: story.id, to: neighborId };
+      })]);
+    }
+    // edges = currentStory.neighbors.map((neighborId) => {
+    //   return { from: currentStory.id, to: neighborId };
+    // });
   }
 
   return (
@@ -50,7 +57,8 @@ export default function GraphDisplay() {
           }}
           options={{
             physics: {
-              enabled: false,
+              enabled: true,
+              stabilization: true,
             },
             nodes: {
               shape: 'square',
