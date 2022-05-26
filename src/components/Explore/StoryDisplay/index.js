@@ -1,11 +1,12 @@
+import { useSelector } from "react-redux";
 import Box from "@mui/material/Box";
 import StoryTitle from "./StoryTitle";
 import StoryView from "./StoryView";
 import ByLine from "./ByLine";
 
 
-
-export default function StoryDisplay(props) {
+export default function StoryDisplay() {
+  const currentStory = useSelector((state) => state.graph.currentStory)
   return (
     <Box id="story-display" sx={{
       display: "flex",
@@ -18,9 +19,9 @@ export default function StoryDisplay(props) {
       padding: "2%",
       textAlign: "left",
     }}>
-      <StoryTitle title={props.currentStory.label} />
-      <StoryView description={props.currentStory.description} tooltips={props.currentStory.tooltips} />
-      <ByLine penName={props.currentStory.penName} />
+      <StoryTitle title={currentStory.label} />
+      <StoryView description={currentStory.description} tooltips={currentStory.tooltips} />
+      <ByLine penName={currentStory.penName} />
     </Box>
   );
 }
