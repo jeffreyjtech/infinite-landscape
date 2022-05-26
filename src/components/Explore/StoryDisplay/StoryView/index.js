@@ -10,7 +10,6 @@ export default function StoryView(props) {
   for (let i = 0; i < keys.length; i++) {
     let keyword = keys[i];
     let regExp = new RegExp(keyword, 'g');
-    //regExp = /potato/g
     if (!regExp.test(description)) continue;
 
     let keywordIndex = description.indexOf(keyword)
@@ -18,20 +17,21 @@ export default function StoryView(props) {
     slices.push(keyword);
     previousIndex = keywordIndex + keyword.length;
   }
-  console.log(slices)
+  slices.push(description.slice(previousIndex));
+
   let tippedDescription = [];
   slices.forEach((slice) => {
-    console.log(slice);
+
     if (keys.includes(slice)) {
       tippedDescription.push(<Tooltip title={props.tooltips[slice]}><Typography sx={{ display: "inline" }}>{slice}</Typography></Tooltip>)
     } else {
       tippedDescription.push(slice);
     }
   })
-  console.log(tippedDescription)
+
   return (
     <div id="tipped-description">
       {tippedDescription}
-      </div>
+    </div>
   );
 }
