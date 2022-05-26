@@ -8,7 +8,14 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react'
 
-
+/**
+ * 
+ * @param {*} props
+ * takes in data to be rendered in accordian  
+ * @returns 
+ * component with rendered data from props
+ * 
+ */
 function Favorites(props) {
   const [expanded, setExpanded] = useState(false);
 
@@ -19,7 +26,9 @@ function Favorites(props) {
     <div className='mt-4' style={{ height: '500px', border: 'solid 3px black' }}>
       <p>My Favorites:</p>
       <div className='m-4'>
-        {/* insert map here to iterate over data and populare accordians appriopriatley */}
+        {/* insert map here to iterate over data and populare accordians appriopriatley
+          props.data.map((value)=>{})
+        */}
         <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}

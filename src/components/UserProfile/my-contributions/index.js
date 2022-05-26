@@ -7,7 +7,15 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react'
 
-            // {/* my recent map || Decide on library EX: ALCHEMY OR GRIDS AND GRAPHS OR ANY OTHERS?*/}
+/**
+ * 
+ * @param {*} props 
+ * Takes in data to be rendered in component 
+ * @returns
+ * component with rendered data from props
+ *  
+ */
+
 
 function Contributions(props) {
   const [expanded, setExpanded] = useState(false);
@@ -19,7 +27,9 @@ function Contributions(props) {
     <div className='mt-4' style={{ border: 'solid 3px black' }}>
       <p>My Contributions:</p>
       <div className='m-4'>
-        {/* insert map here to iterate over data and populate data correctly */}
+        {/* insert map here to iterate over data and populate data correctly 
+          props.data.map((value)=>{})
+        */}
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
