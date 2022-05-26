@@ -18,7 +18,7 @@ export default function NetworkView() {
       flexDirection: "column",
       backgroundColor: "darkslategray",
     }}>
-      <Typography>{currentStory.category}</Typography>
+      <Typography>{currentStory.group}</Typography>
       <GraphDisplay />
     </Box>) :
       null);
