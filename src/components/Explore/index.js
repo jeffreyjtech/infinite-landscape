@@ -1,8 +1,11 @@
 import { Box } from '@mui/material';
+import { useSelector } from "react-redux";
 import StoryDisplay from './StoryDisplay';
 import NetworkDisplay from './NetworkDisplay';
 
 export default function Explore() {
+  const currentStory = useSelector((state) => state.graph.currentStory)
+
   return (
     <Box
       sx={{
@@ -15,7 +18,7 @@ export default function Explore() {
         padding: '2%',
       }}
     >
-      <StoryDisplay />
+      <StoryDisplay currentStory={currentStory} />
       <NetworkDisplay />
     </Box>
   );
