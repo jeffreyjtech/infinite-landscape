@@ -15,7 +15,8 @@ function Navigator() {
             <Nav.Link href="profile">Profile</Nav.Link>
           </Nav>
         </Container>
-            <Button color="primary">Login</Button>
+            <Button href='signin' color="primary">Login</Button>
+            <Button href='signup' color="primary">Sign Up</Button>
       </Navbar>
     </div>
   );
