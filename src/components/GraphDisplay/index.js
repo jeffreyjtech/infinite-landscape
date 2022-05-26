@@ -41,7 +41,7 @@ export default function GraphDisplay() {
     <Box
       sx={{
         minHeight: '30vh',
-        minWidth: '50vh',
+        minWidth: '100%',
       }}
     >
       {stories?.length ? (
