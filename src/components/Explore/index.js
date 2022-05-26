@@ -18,7 +18,7 @@ export default function Explore() {
         padding: '2%',
       }}
     >
-      <StoryDisplay currentStory={currentStory} />
+      { currentStory ? <StoryDisplay currentStory={currentStory} /> : null}
       <NetworkDisplay />
     </Box>
   );
