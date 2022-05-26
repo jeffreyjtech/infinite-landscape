@@ -52,7 +52,7 @@ function ToolTipForm({ tooltipHandler }) {
     })
     setToolTipList(newObj)
     // need to debug how state is being passed to StoryDisplay
-    // tooltipHandler({newObj})
+    tooltipHandler({...toolTipData, toolTipList: newObj})
   }
 
 

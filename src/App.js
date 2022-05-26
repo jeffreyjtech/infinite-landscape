@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 // depreciated stylings throwing warnings -> not required
 // import 'bootstrap/dist/css/bootstrap.min.css';
