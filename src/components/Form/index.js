@@ -84,7 +84,7 @@ function Form(){
   color: descriptions.color,
   tooltips: tooltip.toolTipList
 }
-// console.log(currentStory);
+console.log(currentStory);
 
   return(
     <Container style={{marginTop: '75px'}}>
