@@ -24,12 +24,17 @@ export default function GraphDisplay() {
 
   // console.log('Stories is', stories, 'currentStory is', currentStory);
 
-  let edges;
+  let edges = [];
 
   if (currentStory.neighbors?.length) {
-    edges = currentStory.neighbors.map((neighborId) => {
-      return { from: currentStory.id, to: neighborId };
-    });
+    for (let story of stories) {
+      edges = ([...edges, ...story.neighbors.map((neighborId) => {
+        return { from: story.id, to: neighborId };
+      })]);
+    }
+    // edges = currentStory.neighbors.map((neighborId) => {
+    //   return { from: currentStory.id, to: neighborId };
+    // });
   }
 
   return (
@@ -53,6 +58,7 @@ export default function GraphDisplay() {
           options={{
             physics: {
               enabled: true,
+              stabilization: true,
             },
             nodes: {
               shape: 'square',
