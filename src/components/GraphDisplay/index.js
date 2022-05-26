@@ -1,18 +1,18 @@
 import { Box } from '@mui/material';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import Graph from 'react-graph-vis';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrent, getAPIStories } from '../../store/graph';
+import { setCurrent, getAPIStories, getStory } from '../../store/graph';
 
 // This will display graphs for the explore and user profile pages
 export default function GraphDisplay() {
   const dispatch = useDispatch();
   const { stories, currentStory } = useSelector((state) => state.graph);
 
-  useEffect(() => {
-    dispatch(getAPIStories(1));
-    dispatch(setCurrent(1));
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // useEffect(() => {
+  //   dispatch(getAPIStories(1));
+  //   dispatch(getStory(1));
+  // }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleClick({ nodes }) {
     const node = nodes[0];
