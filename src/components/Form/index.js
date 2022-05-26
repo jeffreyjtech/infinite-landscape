@@ -82,7 +82,7 @@ function Form(){
   description: descriptions.description,
   category: descriptions.category,
   color: descriptions.color,
-  tooltips: tooltip.toolTipList
+  tooltips: tooltip.toolTipList || []
 }
 console.log(currentStory);
 
