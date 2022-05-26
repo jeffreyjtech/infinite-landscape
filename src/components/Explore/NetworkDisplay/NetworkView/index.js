@@ -9,18 +9,17 @@ export default function NetworkView() {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAPIStories(1));
-    dispatch(getStory(1));
+    dispatch(getAPIStories(1)).then(() => { dispatch(getStory(1)) });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     currentStory ? (<Box sx={{
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "darkslategray",
-  }}>
-    <Typography>{currentStory.category}</Typography>
-    <GraphDisplay />
-  </Box>):  
-  null);
+      display: "flex",
+      flexDirection: "column",
+      backgroundColor: "darkslategray",
+    }}>
+      <Typography>{currentStory.category}</Typography>
+      <GraphDisplay />
+    </Box>) :
+      null);
 }

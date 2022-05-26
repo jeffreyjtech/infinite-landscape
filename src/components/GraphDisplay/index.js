@@ -15,9 +15,11 @@ export default function GraphDisplay() {
   // }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleClick({ nodes }) {
-    const node = nodes[0];
-    dispatch(setCurrent(node));
-    dispatch(getAPIStories(node));
+    if (nodes[0] !== currentStory.id) {
+      const node = nodes[0];
+      dispatch(setCurrent(node));
+      dispatch(getAPIStories(node));
+    }
   }
 
   // console.log('Stories is', stories, 'currentStory is', currentStory);
@@ -50,7 +52,7 @@ export default function GraphDisplay() {
           }}
           options={{
             physics: {
-              enabled: false,
+              enabled: true,
             },
             nodes: {
               shape: 'square',

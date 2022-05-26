@@ -72,8 +72,8 @@ const sampleData = [
 ];
 
 const initialState = {
-  stories: sampleData,
-  currentStory: null,
+  stories: [],
+  currentStory: 0,
 };
 
 const graphSlice = createSlice({
@@ -81,19 +81,24 @@ const graphSlice = createSlice({
   initialState: initialState,
   reducers: {
     setCurrent(state, action) {
-      if (_validateId(action.payload)) {
+      let id;
+      if (typeof action.payload !== 'number') id = action.payload.id;
+      else id = action.payload;
+
+      if (_validateId(id)) {
         let newState = { ...state };
         newState.currentStory = state.stories.find(
-          (story) => story.id === action.payload
+          (story) => story.id === id
         );
+        console.log(newState.currentStory);
         return { ...state, ...newState };
       } else {
         return state;
       }
     },
     setStories(state, action) {
-      // console.log('Setting stories from API');
-      return { ...state, stories: [state.currentStory, ...action.payload] };
+      console.log('Setting stories from API', action.payload);
+      return { ...state, stories: [...action.payload] };
     },
   },
 });
@@ -104,6 +109,7 @@ export default graphSlice;
 
 // This is a thunk
 export const getAPIStories = (nodeId) => async (dispatch) => {
+  //console.log('getAPIStories ', nodeId);
   if (_validateId(nodeId)) {
     try {
       const response = await axios.get(`${API_URL}/graph/${nodeId}`);
@@ -115,9 +121,11 @@ export const getAPIStories = (nodeId) => async (dispatch) => {
 };
 
 export const getStory = (nodeId) => async (dispatch) => {
+  //console.log('getStory ', nodeId);
   if (_validateId(nodeId)) {
     try {
       const response = await axios(`${API_URL}/story/${nodeId}`)
+      console.log('response ', response.data)
       dispatch(setCurrent(response.data));
     } catch (e) {
       console.error(e);
@@ -126,6 +134,7 @@ export const getStory = (nodeId) => async (dispatch) => {
 }
 
 function _validateId(nodeId) {
+  //console.log(nodeId);
   if (!nodeId || typeof nodeId !== 'number') {
     console.error('Invalid node id');
     return false;
