@@ -9,6 +9,8 @@ import Form from "./components/Form";
 import Explore from './components/Explore';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import SignIn from "./components/Auth/SignIn";
+import SignUp from "./components/Auth/SignUp";
 
 /** App is the function container for rendering Explore, Profile, and Form components */
 function App() {
@@ -22,6 +24,8 @@ function App() {
       <BrowserRouter>
         <Routes>
             <Route path="/profile" element={<Profile />} />
+            <Route path="/signIn" element={<SignIn />} />
+            <Route path="/signUp" element={<SignUp />} />
             <Route path="/create" element={<Form />} />
             <Route path="/" element={<Explore />} />
         </Routes>
