@@ -26,7 +26,7 @@ const authSlice = createSlice({
   }
 })
 
-// function to send user login through the signin route
+// Thunk function to send user login through the signin route
 export const getUser = (userData) => async(dispatch) => {
   if (userData.password && userData.username) {
     let response = await axios.post(`${API_URL}/signin`, {}, {
@@ -42,14 +42,22 @@ export const getUser = (userData) => async(dispatch) => {
   }
 }
 
+// Thunk to send new user data to both signup route and profile route
 export const getNewUser = (userData) => async(dispatch) => {
   if (userData.password && userData.username) {
-    let response = await axios.post(`${API_URL}/signup`, {
+    let signupResponse = await axios.post(`${API_URL}/signup`, {
       username: userData.username, 
       password: userData.password,
     });
-    dispatch(setUser(response.data));
-    console.log(response.data);
+    let profileResponse = await axios.post(`${API_URL}/profile`, {
+      username: signupResponse.data.username,
+      history: [],
+      favorites: [],
+      contributions: []
+    });
+    dispatch(setUser(signupResponse.data));
+    console.log(signupResponse.data);
+    console.log(profileResponse.data);
   }
 }
 

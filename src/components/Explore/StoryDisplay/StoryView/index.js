@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 export default function StoryView(props) {
   let description = props.description;
   let previousIndex = 0;
-  let keys = Object.keys(props.tooltips)
+  let keys = props?.tooltips ? Object.keys(props.tooltips) : [];
   let slices = []
 
   for (let i = 0; i < keys.length; i++) {
