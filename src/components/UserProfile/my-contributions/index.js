@@ -31,7 +31,7 @@ function Contributions(props) {
           props.data.map((value)=>{})
         */}
         {props.contributions.map((value, index) => {
-          return(<Accordion expanded={expanded === value.toString()} onChange={handleChange(value.toString())}>
+          return(<Accordion expanded={expanded === value.toString()} onChange={handleChange(value.toString())} key={index}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel4bh-content"

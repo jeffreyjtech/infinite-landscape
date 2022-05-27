@@ -45,7 +45,7 @@ function Favorites(props) {
           props.data.map((value)=>{})
         */}
         {favorites.map((value, index) => {
-          return (<Accordion expanded={expanded === value.title.toString()} onChange={handleChange(value.title.toString())}>
+          return (<Accordion expanded={expanded === value.title.toString()} onChange={handleChange(value.title.toString())} key={index}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel4bh-content"

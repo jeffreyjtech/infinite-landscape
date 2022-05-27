@@ -27,7 +27,7 @@ function Recents(props) {
         <Container className="p-4">
           {props.recents.map((value, index) => {
             return (
-              <Accordion expanded={expanded === value.toString()} onChange={handleChange(value.toString())}>
+              <Accordion expanded={expanded === value.toString()} onChange={handleChange(value.toString())} key={index}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel4bh-content"
