@@ -2,7 +2,7 @@ import { Box, Button, MenuItem, Select } from '@mui/material';
 
 export default function NetworkControls() {
   return (
-    <Box sx={{ backgroundColor: 'darkslategrey', display: 'flex', flexDirection: 'row' }}>
+    <Box sx={{ backgroundColor: 'darkslategrey', display: 'flex', flexDirection: 'row' }} data-testid='networkC'>
       {/* <Box>
       <Button>North</Button>
       <Button>East</Button>

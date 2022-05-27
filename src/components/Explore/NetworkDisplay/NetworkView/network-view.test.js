@@ -1,23 +1,23 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
-import store from '../../../store';
-import Signup from './index.js';
+import store from '../../../../store';
 
-describe('Testing the Signup', () => {
+import NetworkView from './index.js';
 
-  test('Should render the Signup', () => {
+describe('Testing the NetworkView', () => {
+
+  test('Should render the NetworkView', () => {
 
     render(
       <Provider store={store}>
-        <Signup />
+        < NetworkView />
       </Provider>
     );
 
-    let element = screen.getByTestId('signup');
+    let element = screen.getByTestId('networkV');
 
     expect(element).toBeInTheDocument();
     expect(element).toBeTruthy();
   });
-
 });

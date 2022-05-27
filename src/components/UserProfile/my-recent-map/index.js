@@ -8,7 +8,7 @@
  */
 function Recents(props) {
   return (
-    <div className='mt-4' style={{ height: '500px', border: 'solid 3px black' }}>
+    <div className='mt-4' style={{ height: '500px', border: 'solid 3px black' }} data-testid='recents'>
       <p>
         Recent map here.
       </p>

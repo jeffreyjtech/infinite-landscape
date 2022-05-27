@@ -30,7 +30,7 @@ export default function StoryView(props) {
   })
 
   return (
-    <div id="tipped-description">
+    <div id="tipped-description" data-testid='storyview'>
       {tippedDescription}
     </div>
   );

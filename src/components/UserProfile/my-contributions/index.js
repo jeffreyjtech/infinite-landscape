@@ -24,7 +24,7 @@ function Contributions(props) {
     setExpanded(isExpanded ? panel : false);
   };
   return (
-    <div className='mt-4' style={{ border: 'solid 3px black' }}>
+    <div className='mt-4' style={{ border: 'solid 3px black' }} data-testid='contributions'>
       <p>My Contributions:</p>
       <div className='m-4'>
         {/* insert map here to iterate over data and populate data correctly 

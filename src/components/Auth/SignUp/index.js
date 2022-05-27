@@ -39,7 +39,7 @@ function SignUp() {
   }
 
   return (
-    <>
+    <div data-testid='signup'>
       <Container className="w-25 mt-4" style={{ backgroundColor: 'skyblue' }}>
         <Row>
           <Form>
@@ -73,7 +73,7 @@ function SignUp() {
           </Form>
         </Row>
       </Container>
-    </>
+    </div>
   )
 }
 
