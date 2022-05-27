@@ -7,7 +7,10 @@ import Button from '@mui/material/Button';
 import PreviewModal from "./PreviewModal";
 
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { getProfile } from "../../store/profile";
+import { Typography } from "@mui/material";
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 
@@ -19,6 +22,17 @@ const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
  * calls api with object
  */
 function Form(){
+
+  const auth = useSelector((state) => state.auth);
+  const profile = useSelector((state) => state.profile);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (auth.signedIn) {
+      dispatch(getProfile(auth.id));
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   //state for description form
   const [descriptions, setDescriptions] = useState({
     category: "Horror",
@@ -40,12 +54,20 @@ function Form(){
 
   //state for preview modal
   const [show, setShow] = useState(false);
+
+  if (!auth.signedIn) {
+    return (
+      <Typography variant="h3" component="div" gutterBottom>
+        Please sign in
+      </Typography>
+    );
+  }
   //function to handle submit to API
   async function onSumbit(e){
     let object = {
       label: descriptions.label,
-      username: 'PLACEHOLDER',
-      penName: 'PLACEHOLDER_STUFF',
+      username: profile?.profile.username,
+      penName: profile?.profile.username,
       summary: descriptions.summary,
       description: descriptions.description,
       group: descriptions.category.toLocaleLowerCase(),
