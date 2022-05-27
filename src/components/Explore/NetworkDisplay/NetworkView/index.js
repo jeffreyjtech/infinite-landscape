@@ -21,5 +21,5 @@ export default function NetworkView() {
       <Typography>{currentStory.group}</Typography>
       <GraphDisplay />
     </Box>) :
-      null);
+      <div data-testid='networkV'></div>);
 }

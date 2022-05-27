@@ -23,7 +23,7 @@ function Favorites(props) {
     setExpanded(isExpanded ? panel : false);
   };
   return (
-    <div className='mt-4' style={{ height: '500px', border: 'solid 3px black' }}>
+    <div className='mt-4' style={{ height: '500px', border: 'solid 3px black' }} data-testid='favorites'>
       <p>My Favorites:</p>
       <div className='m-4'>
         {/* insert map here to iterate over data and populare accordians appriopriatley

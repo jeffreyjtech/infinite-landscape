@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 
 function Navigator() {
   return (
-    <div id="navbar">
+    <div id="navbar" data-testid='nav'>
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="/">Infinite Landscape</Navbar.Brand>

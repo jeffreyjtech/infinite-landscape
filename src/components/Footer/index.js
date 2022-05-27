@@ -7,7 +7,7 @@
 
 function Header(){
   return(
-    <div>
+    <div data-testid='footer'>
       Copyright, or something
     </div>
   )
