@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import { useDispatch } from "react-redux";
 import { getNewUser } from "../../../store/auth";
+import axios from "axios";
 
 function SignUp() {
   const [formData, setFormData] = useState({})
@@ -21,9 +22,19 @@ function SignUp() {
     setFormData(store);
   };
 
+  async function setUpProfile(data) {
+
+    const response = await axios.post('http://localhost:3001/profile/', {
+      username: data.username,
+    });
+    console.log('PROFILE SET: ', response.data);
+  }
+
   function handleSubmit(e) {
     //call API with the appriate user data object
     e.preventDefault();
+    console.log('here I set up a profile')
+    setUpProfile(formData);
     dispatch(getNewUser(formData))
   }
 
