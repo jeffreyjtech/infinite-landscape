@@ -90,7 +90,7 @@ const graphSlice = createSlice({
         newState.currentStory = state.stories.find(
           (story) => story.id === id
         );
-        console.log(newState.currentStory);
+        // console.log(newState.currentStory);
         return { ...state, ...newState };
       } else {
         return state;
