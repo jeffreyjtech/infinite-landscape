@@ -62,11 +62,11 @@ function Profile(props) {
       <Container>
         <Row>
           <Col className="w-50 m-4" style={{ backgroundColor: '#E9573F' }}>
-            <Recents />
-            <Favorites />
+            <Recents recents={profile.historyStories} />
+            <Favorites favorites={profile.profile.favorites} />
           </Col>
           <Col className="w-50 m-4" style={{ backgroundColor: '#E95162' }}>
-            <Contributions />
+            <Contributions contributions={profile.contributionStories}/>
           </Col>
         </Row>
       </Container>
