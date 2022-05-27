@@ -8,14 +8,17 @@ const profileSlice = createSlice({
   initialState: {
     profile: {
       username: '',
-      history: [''],
-      favorites: [''],
-      contributions: [''],
+      history: [],
+      favorites: [],
+      contributions: [],
     },
+    historyStories: [], // Array of full story data
+    favoritesStories: [], // Array of full story data
+    contributionsStories: [], // Array of full story data
   },
   reducers: {
     setProfile(state, action) {
-      return { ...state, profile: action.payload };
+      return { ...state, ...action.payload };
     },
   },
 });
@@ -27,12 +30,32 @@ export const { setProfile } = profileSlice.actions;
 // THUNK
 export const getProfile = (profileId) => async (dispatch) => {
   console.log('checking profile id ', profileId);
-  if(profileId) {
+  if (profileId) {
     try {
-      const response = await axios.get(`${API_URL}/profile/${profileId}`);
-      dispatch(setProfile(response.data));
+      let profileData = await axios.get(`${API_URL}/profile/${profileId}`);
+
+      let profile = profileData.data;
+
+      let historyStories = await _getStoriesFromArray(profile.history);
+      let favoritesStories = await _getStoriesFromArray(profile.favorites);
+      let contributionsStories = await _getStoriesFromArray(profile.contributions);
+
+      dispatch(
+        setProfile({ profile, historyStories, favoritesStories, contributionsStories })
+      );
     } catch (e) {
       console.error(e);
     }
   }
+};
+
+// Helper function
+async function _getStoriesFromArray(storyIdArray) {
+  let storyRecords = [];
+  for (let storyId of storyIdArray) {
+    storyId = parseInt(storyId);
+    const storyRecord = await axios.get(`${API_URL}/story/${storyId}`);
+    storyRecords.push(storyRecord.data);
+  }
+  return storyRecords;
 }
