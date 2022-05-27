@@ -3,19 +3,26 @@ import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
+const storedAuth = JSON.parse(localStorage.getItem('auth'));
+const initialState = storedAuth || {
+  username: '',
+  password: '', 
+  token: '',
+  role: '',
+  signedIn: false,
+};
+
 const authSlice = createSlice({
   name: "auth",
-  initialState: {
-      username: '',
-      password: '', 
-      token: '',
-      role: '',
-  },
+  initialState: initialState,
   reducers: {
     //function to set user
     setUser(state, action){
-      return action.payload;
+      let newState = { ...state, ...action.payload, signedIn: true };
+      localStorage.setItem('auth', JSON.stringify(newState));
+      return newState;
     }
+    // Logout function goes here, make sure to clear local storage
   }
 })
 
@@ -34,6 +41,7 @@ export const getUser = (userData) => async(dispatch) => {
     console.log('bad username')
   }
 }
+
 export const getNewUser = (userData) => async(dispatch) => {
   if (userData.password && userData.username) {
     let response = await axios.post(`${API_URL}/signup`, {

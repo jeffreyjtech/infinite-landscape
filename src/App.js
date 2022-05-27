@@ -15,7 +15,7 @@ import { useSelector } from "react-redux";
 /** App is the function container for rendering Explore, Profile, and Form components */
 function App() {
 
-  const login = useSelector((state) => {
+  const auth = useSelector((state) => {
     return state.auth;
   })
 
@@ -30,7 +30,7 @@ function App() {
         <Routes>
             <Route path="/profile" element={<Profile />} />
             {
-              login.username ?
+              auth.signedIn ?
               null :
               <>
               <Route path="/signIn" element={<SignIn />} />
