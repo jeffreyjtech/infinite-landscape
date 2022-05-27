@@ -28,7 +28,10 @@ export const getUser = (userData) => async(dispatch) => {
         password: userData.password,
       },
     });
-    dispatch(response.data);
+    dispatch(setUser(response.data));
+    console.log(response.data);
+  } else {
+    console.log('bad username')
   }
 }
 export const getNewUser = (userData) => async(dispatch) => {
@@ -37,7 +40,8 @@ export const getNewUser = (userData) => async(dispatch) => {
       username: userData.username, 
       password: userData.password,
     });
-    dispatch(response.data);
+    dispatch(setUser(response.data));
+    console.log(response.data);
   }
 }
 
