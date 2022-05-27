@@ -3,6 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Button from '@mui/material/Button';
+import LogOut from "../Auth/LogOut";
 
 function Navigator() {
   return (
@@ -16,6 +17,7 @@ function Navigator() {
           </Nav>
         </Container>
             <Button href='signin' color="primary">Login</Button>
+            <LogOut />
             <Button href='signup' color="primary">Sign Up</Button>
       </Navbar>
     </div>
