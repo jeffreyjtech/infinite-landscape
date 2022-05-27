@@ -1,4 +1,12 @@
-//renders a visual representation of the graph data recieved from the API
+// IMPORTS: from MUI Accordian component
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useState } from 'react'
+import Container from 'react-bootstrap/Container'
+
 /**
  * 
  * @param {*} props 
@@ -7,12 +15,35 @@
  * component with visualization rendered to the user 
  */
 function Recents(props) {
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
   return (
     <div className='mt-4' style={{ height: '500px', border: 'solid 3px black' }} data-testid='recents'>
-      <p>
-        Recent map here.
-      </p>
+      <p>My History:</p>
       <div className='w-75 h-75' style={{ backgroundColor: 'skyblue', justifyContent: 'center', margin: 'auto' }}>
+        <Container className="p-4">
+          {props.recents.map((value, index) => {
+            return (
+              <Accordion expanded={expanded === value.toString()} onChange={handleChange(value.toString())}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel4bh-content"
+                  id="panel4bh-header"
+                >
+                  <Typography sx={{ width: '66%', flexShrink: 0 }}>{value}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    {value.category}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            )
+          })}
+        </Container>
       </div>
     </div>
   )

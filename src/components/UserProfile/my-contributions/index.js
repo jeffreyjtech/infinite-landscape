@@ -30,21 +30,22 @@ function Contributions(props) {
         {/* insert map here to iterate over data and populate data correctly 
           props.data.map((value)=>{})
         */}
-        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel4bh-content"
-            id="panel4bh-header"
-          >
-            <Typography sx={{ width: '33%', flexShrink: 0 }}>Personal data</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit
-              amet egestas eros, vitae egestas augue. Duis vel est augue.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
+        {props.contributions.map((value, index) => {
+          return(<Accordion expanded={expanded === value.toString()} onChange={handleChange(value.toString())}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel4bh-content"
+              id="panel4bh-header"
+            >
+              <Typography sx={{ width: '33%', flexShrink: 0 }}>{value}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                We need to figure out how to get the story information to here. The users input from the form.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        )})}
       </div>
     </div>
   )

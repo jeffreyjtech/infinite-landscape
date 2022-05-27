@@ -16,6 +16,21 @@ import { useState } from 'react'
  * component with rendered data from props
  * 
  */
+
+const favorites = [
+  {
+    title: 'Fantasy space ride!',
+    category: 'Fantasy'
+  },
+  {
+    title: 'Five Night\'s at Freddy\'s',
+    category: 'Horror'
+  },
+  {
+    title: 'The Land Before Time - Little Foot goes to college',
+    category: 'Adventure'
+  }
+]
 function Favorites(props) {
   const [expanded, setExpanded] = useState(false);
 
@@ -29,21 +44,23 @@ function Favorites(props) {
         {/* insert map here to iterate over data and populare accordians appriopriatley
           props.data.map((value)=>{})
         */}
-        <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel4bh-content"
-            id="panel4bh-header"
-          >
-            <Typography sx={{ width: '33%', flexShrink: 0 }}>Personal data</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit
-              amet egestas eros, vitae egestas augue. Duis vel est augue.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
+        {favorites.map((value, index) => {
+          return (<Accordion expanded={expanded === value.title.toString()} onChange={handleChange(value.title.toString())}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel4bh-content"
+              id="panel4bh-header"
+            >
+              <Typography sx={{ width: '66%', flexShrink: 0 }}>{value.title}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                {value.category}
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          )
+        })}
       </div>
     </div>
   )
