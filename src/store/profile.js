@@ -57,7 +57,7 @@ export const pushContributionsArray = (storyId) => async (dispatch, getState) =>
   if (profileId) {
     try {
       console.log('Updating profile array:', storyId);
-      let response = await axios.put(`${API_URL}/profile/${profileId}`, {profile: newData});
+      let response = await axios.put(`${API_URL}/profile/${profileId}`, newData);
 
       dispatch(
         setProfile({profile: response.data})
@@ -80,7 +80,7 @@ export const pushHistoryArray = (storyId) => async (dispatch, getState) => {
   if (profileId) {
     try {
       console.log('Updating profile array:', storyId);
-      let response = await axios.put(`${API_URL}/profile/${profileId}`, {profile: newData});
+      let response = await axios.put(`${API_URL}/profile/${profileId}`, newData);
 
       dispatch(
         setProfile({profile: response.data})
