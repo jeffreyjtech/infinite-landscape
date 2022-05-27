@@ -10,9 +10,15 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SignIn from "./components/Auth/SignIn";
 import SignUp from "./components/Auth/SignUp";
+import { useSelector } from "react-redux";
 
 /** App is the function container for rendering Explore, Profile, and Form components */
 function App() {
+
+  const auth = useSelector((state) => {
+    return state.auth;
+  })
+
   return (
     <div className="App">
       <div className="header">
@@ -23,10 +29,16 @@ function App() {
       <BrowserRouter>
         <Routes>
             <Route path="/profile" element={<Profile />} />
-            <Route path="/signIn" element={<SignIn />} />
-            <Route path="/signUp" element={<SignUp />} />
+            {
+              auth.signedIn ?
+              null :
+              <>
+              <Route path="/signIn" element={<SignIn />} />
+              <Route path="/signUp" element={<SignUp />} />
+              </>
+            }
             <Route path="/create" element={<Form />} />
-            <Route path="/" element={<Explore />} />
+            <Route path="*" element={<Explore />} />
         </Routes>
       </BrowserRouter>
       <div className="footer">
