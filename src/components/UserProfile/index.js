@@ -39,7 +39,7 @@ function Profile(props) {
 
 
   useEffect(() => {
-    if(auth.signedIn){
+    if (auth.signedIn) {
       dispatch(getProfile(auth.id));
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -51,13 +51,13 @@ function Profile(props) {
       </Typography>
     );
   }
-  
+
   console.log('Profile data is', profile);
 
   return (
     <>
       <Typography variant="h3" component="div" gutterBottom>
-        Welcome back, ${'username'}
+        Welcome back, {`${profile.profile.username}`}
       </Typography>
       <Container>
         <Row>
