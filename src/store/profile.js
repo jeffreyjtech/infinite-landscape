@@ -49,6 +49,27 @@ export const getProfile = (profileId) => async (dispatch) => {
   }
 };
 
+export const pushProfileArray = (arrayKey, storyId) => async (dispatch, getState) => {
+  const { profile } = getState();
+  const profileId = profile.profile.id;
+  const oldArray = profile.profile[arrayKey];
+  const newArray = [...oldArray, storyId];
+  const newData = {[arrayKey]: newArray};
+  if (profileId) {
+    try {
+      console.log('Updating profile array:', arrayKey, storyId);
+      let response = await axios.put(`${API_URL}/profile/${profileId}`, newData);
+
+      dispatch(
+        setProfile({profile: response.data})
+      );
+      
+    } catch (e) {
+      console.error(e);
+    }
+  }
+}
+
 // Helper function
 async function _getStoriesFromArray(storyIdArray) {
   let storyRecords = [];
