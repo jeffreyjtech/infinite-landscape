@@ -25,24 +25,24 @@ function Recents(props) {
       <p>My History:</p>
       <div className='w-75 h-75' style={{ backgroundColor: 'skyblue', justifyContent: 'center', margin: 'auto' }}>
         <Container className="p-4">
-          {props.recents.map((value, index) => {
+          { props.recents ? props.recents.map((story, index) => {
             return (
-              <Accordion expanded={expanded === value.toString()} onChange={handleChange(value.toString())} key={index}>
+              <Accordion expanded={expanded === story.id} onChange={handleChange(story.id)} key={`${story.id}-${index}`}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel4bh-content"
                   id="panel4bh-header"
                 >
-                  <Typography sx={{ width: '66%', flexShrink: 0 }}>{value}</Typography>
+                  <Typography sx={{ width: '66%', flexShrink: 0 }}>{story.label}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    {value.category}
+                    {story.group}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
             )
-          })}
+          }): null}
         </Container>
       </div>
     </div>

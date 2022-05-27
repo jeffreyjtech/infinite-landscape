@@ -30,14 +30,14 @@ function Contributions(props) {
         {/* insert map here to iterate over data and populate data correctly 
           props.data.map((value)=>{})
         */}
-        {props.contributions.map((value, index) => {
-          return(<Accordion expanded={expanded === value.toString()} onChange={handleChange(value.toString())} key={index}>
+        {props.contributions ? props.contributions.map((story, index) => {
+          return(<Accordion expanded={expanded === story.label} onChange={handleChange(story.label)} key={`${story.id}-${index}`}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel4bh-content"
               id="panel4bh-header"
             >
-              <Typography sx={{ width: '33%', flexShrink: 0 }}>{value}</Typography>
+              <Typography sx={{ width: '33%', flexShrink: 0 }}>{story.label}</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
@@ -45,7 +45,7 @@ function Contributions(props) {
               </Typography>
             </AccordionDetails>
           </Accordion>
-        )})}
+        )}): null}
       </div>
     </div>
   )

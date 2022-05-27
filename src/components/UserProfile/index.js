@@ -52,7 +52,7 @@ function Profile(props) {
     );
   }
 
-  console.log('Profile data is', profile.profile);
+  console.log('Profile data is', profile);
 
   return (
     <>
@@ -62,11 +62,11 @@ function Profile(props) {
       <Container>
         <Row>
           <Col className="w-50 m-4" style={{ backgroundColor: '#E9573F' }}>
-            <Recents recents={profile.profile.history} />
+            <Recents recents={profile.historyStories} />
             <Favorites favorites={profile.profile.favorites} />
           </Col>
           <Col className="w-50 m-4" style={{ backgroundColor: '#E95162' }}>
-            <Contributions contributions={profile.profile.contributions}/>
+            <Contributions contributions={profile.contributionStories}/>
           </Col>
         </Row>
       </Container>
