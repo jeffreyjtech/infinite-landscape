@@ -1,10 +1,22 @@
 import Button from "@mui/material/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { logOutUser } from "../../../store/auth";
+import { useEffect } from "react"
 
 
 function LogOut(){
   let dispatch = useDispatch();
+
+  // const navigate = useNavigate();
+  // const auth = useSelector((state) => {
+  //   return state.auth;
+  // })
+
+  // useEffect(() => {
+  //   return navigate("/signIn")
+  // }, [auth.signedIn, navigate])
+
 
   //use dispatch to call logout reducer
   const handleLogOut = (e) => {
@@ -13,7 +25,7 @@ function LogOut(){
   }
 
   return (
-    <Button onClick={handleLogOut} color="primary">
+    <Button href='signin' onClick={handleLogOut} color="primary">
       Log Out
     </Button>
   )
