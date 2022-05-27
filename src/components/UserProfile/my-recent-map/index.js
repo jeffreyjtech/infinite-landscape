@@ -6,7 +6,7 @@
  * @returns 
  * component with visualization rendered to the user 
  */
-function recentlyVisited(props) {
+function Recents(props) {
   return (
     <div className='mt-4' style={{ height: '500px', border: 'solid 3px black' }}>
       <p>
@@ -18,4 +18,4 @@ function recentlyVisited(props) {
   )
 }
 
-export default recentlyVisited;
+export default Recents;
