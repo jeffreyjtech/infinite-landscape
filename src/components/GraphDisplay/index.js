@@ -38,54 +38,58 @@ export default function GraphDisplay() {
   }
 
   return (
-    <Box
-      sx={{
-        minHeight: '30vh',
-        minWidth: '50vh',
-      }}
+    <div
+      data-testid='graph'
     >
-      {stories?.length ? (
-        <Graph
-          key={Math.random().toString()}
-          graph={{
-            nodes: JSON.parse(JSON.stringify(stories)),
-            edges: JSON.parse(JSON.stringify(edges)),
-          }}
-          getNetwork={(network) => {
-            network.focus(currentStory.id);
-            network.fit({ maxZoomLevel: 0.55 });
-          }}
-          options={{
-            physics: {
-              enabled: true,
-              stabilization: true,
-            },
-            nodes: {
-              shape: 'square',
-              font: {
+      <Box
+        sx={{
+          minHeight: '30vh',
+          minWidth: '50vh',
+        }}
+      >
+        {stories?.length ? (
+          <Graph
+            key={Math.random().toString()}
+            graph={{
+              nodes: JSON.parse(JSON.stringify(stories)),
+              edges: JSON.parse(JSON.stringify(edges)),
+            }}
+            getNetwork={(network) => {
+              network.focus(currentStory.id);
+              network.fit({ maxZoomLevel: 0.55 });
+            }}
+            options={{
+              physics: {
+                enabled: true,
+                stabilization: true,
+              },
+              nodes: {
+                shape: 'square',
+                font: {
+                  color: 'white',
+                },
+              },
+              interaction: {
+                dragNodes: false,
+                dragView: true,
+                selectable: true,
+                zoomView: false,
+              },
+              edges: {
+                arrows: {
+                  to: false,
+                  from: false,
+                },
                 color: 'white',
               },
-            },
-            interaction: {
-              dragNodes: false,
-              dragView: true,
-              selectable: true,
-              zoomView: false,
-            },
-            edges: {
-              arrows: {
-                to: false,
-                from: false,
-              },
-              color: 'white',
-            },
-          }}
-          events={{
-            select: handleClick,
-            // hoverNode: handleHover,
-          }}
-        />
-      ) : null}
-    </Box>
+            }}
+            events={{
+              select: handleClick,
+              // hoverNode: handleHover,
+            }}
+          />
+        ) : null}
+      </Box>
+    </div>
   );
 }

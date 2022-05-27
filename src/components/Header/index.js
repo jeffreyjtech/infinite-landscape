@@ -11,7 +11,7 @@ import Navigator from "../Nav"
 
 function Header() {
   return (
-    <div id="header">
+    <div id="header" data-testid='header'>
       <Navigator />
     </div>
   );

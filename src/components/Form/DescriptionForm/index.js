@@ -36,7 +36,7 @@ function DescriptionForm({ descriptionHandler }) {
     <>
       <div>
         <p>Description Form</p>
-        <Form className="mt-4">
+        <Form className="mt-4" data-testid="desc-form">
           <Row className="g-2">
             <Col>
               <Form.Group controlId="storeName">
@@ -53,8 +53,8 @@ function DescriptionForm({ descriptionHandler }) {
               <FloatingLabel controlId="floatingSelectGrid" label="SELECT">
                 <Form.Select name="category" onChange={handleChange}>
                   <option>Categories</option>
-                  {categories.map(value => {
-                    return <option value={value}>{value}</option>
+                  {categories.map((value, index) => {
+                    return <option key={index} value={value}>{value}</option>
                   })}
                 </Form.Select>
               </FloatingLabel>
@@ -63,8 +63,8 @@ function DescriptionForm({ descriptionHandler }) {
               <FloatingLabel controlId="floatingSelectGrid" label="SELECT">
                 <Form.Select name="color" onChange={handleChange}>
                   <option>Colors</option>
-                  {colors.map(value => {
-                    return <option value={value}>{value}</option>
+                  {colors.map((value, index) => {
+                    return <option key={index} value={value}>{value}</option>
                   })}
                 </Form.Select>
               </FloatingLabel>
