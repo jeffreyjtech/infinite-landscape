@@ -9,7 +9,7 @@ import PreviewModal from "./PreviewModal";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getProfile } from "../../store/profile";
+import { getProfile, pushProfileArray } from "../../store/profile";
 import { Typography } from "@mui/material";
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
@@ -76,6 +76,8 @@ function Form(){
     }
     try {
       const response = await axios.post(`${API_URL}/story`, object);
+      // const profileData = {contributions: [...profile.profile.contributions, String(response.data.id)]};
+      dispatch(pushProfileArray('contributions', String(response.data.id)));
       console.log(response);
       // STRETCH TODO: switch to the explore view on the newly created story on submission
     } catch (e) {

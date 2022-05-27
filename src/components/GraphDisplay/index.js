@@ -3,6 +3,7 @@ import { Box } from '@mui/material';
 import Graph from 'react-graph-vis';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrent, getAPIStories, getStory } from '../../store/graph';
+import { pushProfileArray } from '../../store/profile';
 
 // This will display graphs for the explore and user profile pages
 export default function GraphDisplay() {
@@ -19,6 +20,7 @@ export default function GraphDisplay() {
       const node = nodes[0];
       dispatch(setCurrent(node));
       dispatch(getAPIStories(node));
+      dispatch(pushProfileArray('history', node));
     }
   }
 
