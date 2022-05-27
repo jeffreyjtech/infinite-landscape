@@ -21,8 +21,13 @@ const authSlice = createSlice({
       let newState = { ...state, ...action.payload, signedIn: true };
       localStorage.setItem('auth', JSON.stringify(newState));
       return newState;
-    }
+    },
     // Logout function goes here, make sure to clear local storage
+    logOutUser(state, action){
+    let logoutState = {...state, ...initialState};
+    localStorage.clear('auth');
+    return logoutState;
+    },
   }
 })
 
@@ -54,5 +59,6 @@ export const getNewUser = (userData) => async(dispatch) => {
 }
 
 export const { setUser } = authSlice.actions;
+export const { logOutUser } = authSlice.actions;
 
 export default authSlice;
