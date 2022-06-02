@@ -42,7 +42,7 @@ export const getUser = (userData) => async (dispatch) => {
           username: userData.username,
           password: userData.password,
         },
-      }
+      },
     );
     dispatch(setUser(response.data));
     console.log(response.data);
@@ -52,18 +52,24 @@ export const getUser = (userData) => async (dispatch) => {
 };
 
 // Thunk to send new user data to both signup route and profile route
-export const getNewUser = (userData) => async (dispatch) => {
+export const getNewUser = (userData) => async (dispatch, getState) => {
   if (userData.password && userData.username) {
     let signupResponse = await axios.post(`${API_URL}/signup`, {
       username: userData.username,
       password: userData.password,
     });
-    let profileResponse = await axios.post(`${API_URL}/profile`, {
-      username: signupResponse.data.username,
-      history: [],
-      favorites: [],
-      contributions: [],
-    });
+    let profileResponse = await axios.post(
+      `${API_URL}/profile`,
+      {
+        username: signupResponse.data.username,
+        history: [],
+        favorites: [],
+        contributions: [],
+      },
+      {
+        headers: { Authorization: `Bearer ${signupResponse.data.token}` },
+      },
+    );
     dispatch(setUser(signupResponse.data));
     console.log(signupResponse.data);
     console.log(profileResponse.data);

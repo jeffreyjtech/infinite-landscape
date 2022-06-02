@@ -51,7 +51,7 @@ export const getAPIStories = (nodeId) => async (dispatch) => {
 export const getStory = (nodeId) => async (dispatch) => {
   if (_validateId(nodeId)) {
     try {
-      const response = await axios(`${API_URL}/story/${nodeId}`);
+      const response = await axios.get(`${API_URL}/story/${nodeId}`);
       console.log('response ', response.data);
       dispatch(setCurrent(response.data));
     } catch (e) {
