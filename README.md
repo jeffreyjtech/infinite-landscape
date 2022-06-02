@@ -1,18 +1,21 @@
 
-# ***Infinite Landscape Font-End***
----------------------------------
+# ***Infinite Landscape***
 
----------------------------------
-## [We are deployed on NETLIFY!!](https://guarded-peak-17951.herokuapp.com/api-docs](https://infinite-landscape-jjtech.netlify.app/)
+This project has a front-end repo (<== you are here) and a [back-end repo](https://github.com/jeffreyjtech/infinite-landscape-backend)
 
----------------------------------
-## Web Application
-***[Explain your app, should be at least a paragraph. What does it do? Why should I use? Sell your product!]***
+## [We are deployed on Netlify!](https://infinite-landscape-jjtech.netlify.app/)
 
+## Summary
 
----------------------------------
+Infinite Landscape graphical tool for creative-writing and world-building.
+
+* You can explore a map of user-generated places and stories. 
+* Embedded points of interest tooltips give personality and detail to each location. 
+* The short-form narratives will be easy to create and easy to use for inspiration & entertainment.
+
 
 ## Tools Used
+
 - VSCode
 - "@emotion/react": "^11.9.0",
 - "@emotion/styled": "^11.8.1",
@@ -78,16 +81,12 @@ Run testing suites with NPM test
 ## Change Log
 1.0: Product Launch
 
-------------------------------
 
 ## Authors
 Tanner Percival,
 Brady Camp,
 Micha Davis,
 Jeffrey Jenkins
-
-------------------------------
-
 
 ### Routes
 
