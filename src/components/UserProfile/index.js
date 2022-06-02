@@ -65,7 +65,7 @@ function Profile(props) {
             <Favorites favorites={profile.profile.favorites} />
           </Col>
           <Col className="w-50 m-4" style={{ backgroundColor: '#E95162' }}>
-            <Contributions contributions={profile.contributionStories} />
+            <Contributions contributions={profile.contributionsStories} />
           </Col>
         </Row>
       </Container>
