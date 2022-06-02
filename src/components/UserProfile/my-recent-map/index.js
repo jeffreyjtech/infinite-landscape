@@ -36,8 +36,8 @@ function Recents(props) {
             ? props.recents.map((story, index) => {
                 return (
                   <Accordion
-                    expanded={expanded === story.id}
-                    onChange={handleChange(story.id)}
+                    expanded={expanded === `${story.id}-${index}`}
+                    onChange={handleChange(`${story.id}-${index}`)}
                     key={`${story.id}-${index}`}
                   >
                     <AccordionSummary

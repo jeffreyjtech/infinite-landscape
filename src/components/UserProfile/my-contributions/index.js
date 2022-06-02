@@ -37,9 +37,9 @@ function Contributions(props) {
           ? props.contributions.map((story, index) => {
               return (
                 <Accordion
-                  expanded={expanded === story.label}
-                  onChange={handleChange(story.label)}
-                  key={`${story.id}-${index}`}
+                  expanded={expanded === story.id}
+                  onChange={handleChange(story.id)}
+                  key={story.id}
                 >
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -52,8 +52,7 @@ function Contributions(props) {
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
-                      We need to figure out how to get the story information to here. The
-                      users input from the form.
+                      {story.description}
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
