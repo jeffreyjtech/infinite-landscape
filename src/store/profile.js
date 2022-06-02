@@ -6,15 +6,15 @@ const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 const profileSlice = createSlice({
   name: 'profile',
   initialState: {
-    profile: {
-      username: '',
-      history: [],
-      favorites: [],
-      contributions: [],
+    username: '',
+    history: [], // Array of indices
+    favorites: [], // Array of indices
+    contributions: [], // Array of indices
+    apiStoryData: {
+      historyStories: [], // Array of full story data, pulled from API's /story endpoint
+      favoritesStories: [], // Array of full story data, pulled from API's /story endpoint
+      contributionsStories: [], // Array of full story data, pulled from API's /story endpoint
     },
-    historyStories: [], // Array of full story data
-    favoritesStories: [], // Array of full story data
-    contributionsStories: [], // Array of full story data
   },
   reducers: {
     setProfile(state, action) {
