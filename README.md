@@ -3,9 +3,7 @@
 ---------------------------------
 
 ---------------------------------
-## We are deployed on NETLIFY!!
-
-[ADD NETLIFY LINK HERE](https://guarded-peak-17951.herokuapp.com/api-docs)
+## [We are deployed on NETLIFY!!](https://guarded-peak-17951.herokuapp.com/api-docs](https://infinite-landscape-jjtech.netlify.app/)
 
 ---------------------------------
 ## Web Application
