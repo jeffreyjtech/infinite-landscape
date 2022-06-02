@@ -20,7 +20,7 @@ Infinite Landscape graphical tool for creative-writing and world-building.
 * Micha Davis
 * Jeffrey Jenkins
 
-## Tools and Dependencies
+## Tools and Dependencies (front-end)
 
 * VSCode
 * @emotion/react 11.9.0
