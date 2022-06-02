@@ -1,7 +1,7 @@
 
 # ***Infinite Landscape***
 
-This project has a front-end repo (you are here) and a [back-end repo](https://github.com/jeffreyjtech/infinite-landscape-backend).
+This project has a front-end repo (you are here), [back-end repo](https://github.com/jeffreyjtech/infinite-landscape-backend), and a [planning repo](https://github.com/Digital-Dinosaur/documents).
 
 ## [We are deployed on Netlify!](https://infinite-landscape-jjtech.netlify.app/)
 
