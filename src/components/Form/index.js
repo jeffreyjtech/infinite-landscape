@@ -75,7 +75,9 @@ function Form() {
       tooltips: tooltip.toolTipList,
     };
     try {
-      const response = await axios.post(`${API_URL}/story`, object);
+      const response = await axios.post(`${API_URL}/story`, object, {
+        headers: { Authorization: `Bearer ${auth.token}` },
+      });
       // const profileData = {contributions: [...profile.profile.contributions, String(response.data.id)]};
       dispatch(pushContributionsArray(String(response.data.id)));
       console.log(response);
