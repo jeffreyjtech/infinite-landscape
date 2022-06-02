@@ -87,9 +87,9 @@ function ToolTipForm({ tooltipHandler }) {
           </Col>
         </Row>
         <List>
-          {Object.entries(toolTipList).map(([key, value]) => {
+          {Object.entries(toolTipList).map(([key, value], idx) => {
             return (
-              <ListItem>
+              <ListItem key={`${key}-${value}-${idx}`}>
                 <ListItemText>{`${key}: ${value}`}</ListItemText>
                 <IconButton onClick={(e) => handleDelete(e, key)}>
                   <DeleteForeverIcon />
