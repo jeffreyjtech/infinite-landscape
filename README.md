@@ -1,17 +1,17 @@
 
 # ***Infinite Landscape***
 
-This project has a front-end repo (you are here), [back-end repo](https://github.com/jeffreyjtech/infinite-landscape-backend), and a [planning repo](https://github.com/Digital-Dinosaur/documents).
-
 ## [We are deployed on Netlify!](https://infinite-landscape-jjtech.netlify.app/)
 
 ## What is Infinite Landscape?
 
-Infinite Landscape graphical tool for creative-writing and world-building.
+A visualization platform for story-telling, world-building, and exploration.
 
 * You can explore a map of user-generated places and stories.
 * Embedded points of interest tooltips give personality and detail to each location.
 * The short-form narratives are easy-to-create and easy-to-use for inspiration & entertainment.
+
+This project has a front-end repo (you are here), [back-end repo](https://github.com/jeffreyjtech/infinite-landscape-backend), and a [planning repo](https://github.com/Digital-Dinosaur/documents).
 
 ## Authors
 
