@@ -1,7 +1,7 @@
 
 # ***Infinite Landscape***
 
-## [We are deployed on Netlify!](https://infinite-landscape-jjtech.netlify.app/)
+***We are [deployed](https://infinite-landscape-jjtech.netlify.app/) on Netlify!***
 
 ## What is Infinite Landscape?
 
